@@ -18,7 +18,7 @@ public class Thermal_Confort_Completed {
     }
 
     /**
-     * @return False if an error is detected
+     * @return False if an error is detected test
      * @throws Exception
      */
     public static boolean ThermalComfortCompleted() throws Exception {
