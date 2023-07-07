@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="parameter-1.36">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/parameter-1.36.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/ini4j-0.5.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/configuration-1.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/json-20230618.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
