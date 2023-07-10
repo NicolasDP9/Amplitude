@@ -9,12 +9,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 
-import static com.somfy.Amplitude.GetActivity.*;
+import static com.somfy.Amplitude.GetActivity.getUserActivity;
 
-public class Thermal_Confort_Completed {
+public class Thermal_Confort_Update {
 
     public static void main(String[] args) throws Exception {
-        System.out.println(ThermalComfortCompleted());
+        System.out.println(ThermalComfortUpdate());
     }
 
     /**
@@ -22,7 +22,7 @@ public class Thermal_Confort_Completed {
      * @return False if an error is detected test
      * @throws Exception
      */
-    public static boolean ThermalComfortCompleted() throws Exception {
+    public static boolean ThermalComfortUpdate() throws Exception {
         Parameter p = new Parameter("testParameter");
         JSONObject Activity = getUserActivity(p.getValue("Amplitude_User"),p.getValue("Amplitude_Activity_Limit"));
         if(Activity.has("events")){
@@ -30,20 +30,20 @@ public class Thermal_Confort_Completed {
             for(Object o : ArrayEvent){
                 JSONObject ObjectEvent = (JSONObject) o;
                 //if(ObjectEvent.getString("event_type").equals("thermal_comfort_completed")){
-                if(Objects.equals(ObjectEvent.getString("event_type"), "thermal_comfort_completed")){
+                if(Objects.equals(ObjectEvent.getString("event_type"), "thermal_comfort_updated")){
                     JSONObject eventProperties = ObjectEvent.getJSONObject("event_properties");
                     System.out.println(eventProperties);
                     Iterator<String> keys = eventProperties.keys();
                     while(keys.hasNext()) {
                         String key = keys.next();
-                        boolean getProperties = getThermalConfortCompletedProperties().contains(key);
+                        boolean getProperties = getThermalConfortUpdatedProperties().contains(key);
                         if(!getProperties){
                             System.out.println("Event " + key + " non present dans les event_properties.");
                             System.out.println("JSON = " + ObjectEvent);
                             return false;
                         }else {
                             String valuePropertie = eventProperties.get(key).toString();
-                            boolean getPropertie = getThermalConfortCompletedProperties(key).contains(valuePropertie);
+                            boolean getPropertie = getThermalConfortUpdatedProperties(key).contains(valuePropertie);
                             if(!getPropertie){
                                 System.out.println("Valeur de l'event " + key + " n'est pas bon. Value = " + valuePropertie);
                                 System.out.println("JSON = " + ObjectEvent);
@@ -51,9 +51,6 @@ public class Thermal_Confort_Completed {
                             }
                         }
                     }
-                } else {
-                    System.out.println("Erreur lor de la vérification du event_type = " + ObjectEvent);
-                    return false;
                 }
             }
         }
@@ -63,7 +60,7 @@ public class Thermal_Confort_Completed {
     /**
      * @return List of Properties
      */
-    private static List getThermalConfortCompletedProperties(){
+    private static List getThermalConfortUpdatedProperties(){
         return Arrays.asList("nb_sensor", "nb_mix_sensor_hour", "different_lux", "different_hours");
     }
 
@@ -71,7 +68,7 @@ public class Thermal_Confort_Completed {
      * @param Propertie
      * @return List of Values we want
      */
-    private static List getThermalConfortCompletedProperties(String Propertie){
+    private static List getThermalConfortUpdatedProperties(String Propertie){
         List<String> Properties = null;
         switch (Propertie){
             case("nb_sensor"):
