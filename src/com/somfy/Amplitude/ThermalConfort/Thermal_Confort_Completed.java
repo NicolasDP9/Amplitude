@@ -51,9 +51,6 @@ public class Thermal_Confort_Completed {
                             }
                         }
                     }
-                } else {
-                    System.out.println("Erreur lor de la vérification du event_type = " + ObjectEvent);
-                    return false;
                 }
             }
         }

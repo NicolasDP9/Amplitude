@@ -2,15 +2,10 @@ package com.somfy.Amplitude;
 
 import com.somfy.parameter.Parameter;
 import okhttp3.*;
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import javax.net.ssl.*;
-import java.io.IOException;
-import java.security.GeneralSecurityException;
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
+import java.security.*;
 import java.security.cert.X509Certificate;
 
 public class GetActivity {
