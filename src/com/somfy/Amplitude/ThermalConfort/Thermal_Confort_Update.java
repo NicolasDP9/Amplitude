@@ -29,7 +29,6 @@ public class Thermal_Confort_Update {
             JSONArray ArrayEvent = Activity.getJSONArray("events");
             for(Object o : ArrayEvent){
                 JSONObject ObjectEvent = (JSONObject) o;
-                //if(ObjectEvent.getString("event_type").equals("thermal_comfort_completed")){
                 if(Objects.equals(ObjectEvent.getString("event_type"), "thermal_comfort_updated")){
                     JSONObject eventProperties = ObjectEvent.getJSONObject("event_properties");
                     System.out.println(eventProperties);

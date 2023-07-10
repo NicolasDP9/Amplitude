@@ -20,7 +20,6 @@ public class GetActivity {
             TrustManager[] certs = trustAllCerts();
             OkHttpClient client = new OkHttpClient().newBuilder() .sslSocketFactory(SSLSocket(certs), (X509TrustManager) certs[0]).build();
             MediaType mediaType = MediaType.parse("text/plain");
-            //RequestBody body = RequestBody.create(mediaType, "");
             Request request = new Request.Builder()
                     .url("https://analytics.eu.amplitude.com/api/2/useractivity?user="+user+"&limit="+limit)
                     .method("GET", null)

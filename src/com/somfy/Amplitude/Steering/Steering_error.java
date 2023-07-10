@@ -20,7 +20,6 @@ public class Steering_error {
         JSONObject Activity = getUserActivity(p.getValue("Amplitude_User"),p.getValue("Amplitude_Activity_Limit"));
         if(Activity.has("events")){
             JSONArray ArrayEvent = Activity.getJSONArray("events");
-            JSONObject ObjetEvent = new JSONObject(ArrayEvent);
             for(Object o : ArrayEvent){
                 JSONObject ObjectEvent = (JSONObject) o;
                 if(Objects.equals(ObjectEvent.getString("event_type"), "Steering error")){
