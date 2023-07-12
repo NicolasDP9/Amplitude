@@ -39,8 +39,8 @@ public class Steering_Command {
         return getSteeringCommand().getString("controllable");
     }
 
-    public static Boolean getSteeringCommand_has_tempo() throws Exception {
-        return getSteeringCommand().getBoolean("has_tempo");
+    public static String getSteeringCommand_has_tempo() throws Exception {
+        return String.valueOf(getSteeringCommand().getBoolean("has_tempo"));
     }
 
     public static String getSteeringCommand_ui_widget() throws Exception {
